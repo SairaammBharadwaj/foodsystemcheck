@@ -1,1 +1,4 @@
-
+FROM tomcat:9.0
+COPY target/Food-System.war /usr/local/tomcat/webapps/Food-System.war
+EXPOSE 8080
+CMD ["catalina.sh","run"]

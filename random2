@@ -158,3 +158,43 @@ docker compose down
 docker compose down -v
 
 docker compose up -d --scale web=2
+
+
+
+
+
+
+pipeline {
+    agent any
+    
+    tools {
+        maven "MAVEN_HOME"
+    }
+
+    stages {
+        stage('GIT CLONE & CLEAN') {
+            steps {
+                git branch: 'main', url: 'https://github.com/GudupallyAshokReddy2007/maven-web-project'
+                bat "mvn clean"
+            }
+        }
+        
+        stage('INSTALL') {
+            steps {
+                bat "mvn install"
+            }
+        }
+        
+        stage('TEST') {
+            steps {
+                bat "mvn test"
+            }
+        }
+        
+        stage('PACKAGE') {
+            steps {
+                bat "mvn package"
+            }
+        }
+    }
+}

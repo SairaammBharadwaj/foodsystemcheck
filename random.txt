@@ -1,0 +1,91 @@
+# Step 1: Start Minikube using Docker driver
+minikube start --driver=docker
+
+# Check Minikube status
+minikube status
+
+# Step 2: Create Nginx deployment
+kubectl create deployment mynginx --image=nginx
+
+# Step 3: Check deployments
+kubectl get deployments
+
+# Check pods
+kubectl get pods
+
+# Step 4: Display detailed pod information
+kubectl describe pods
+
+# Step 5: Scale deployment to 4 pods
+kubectl scale deployment mynginx --replicas=4
+
+# Verify 4 pods are running
+kubectl get pods
+
+# Step 6: Expose deployment as NodePort service
+kubectl expose deployment mynginx --type=NodePort --port=80 --target-port=80
+
+# Check available services
+kubectl get services
+
+# Step 7: Forward local port 8081 to service port 80
+kubectl port-forward service/mynginx 8081:80
+
+# Open http://localhost:8081 in your browser
+# Keep port-forward running in this terminal
+
+# Step 8: Open Kubernetes dashboard
+# Run in another terminal
+minikube dashboard
+
+# Step 9: Delete Nginx deployment
+kubectl delete deployment mynginx
+
+# Delete Nginx service
+kubectl delete service mynginx
+
+# Step 10: Stop Minikube cluster
+minikube stop
+
+# Optional: Delete the entire Minikube cluster
+minikube delete
+
+
+# Step 1: Download Nagios Docker image
+docker pull jasonrivers/nagios:latest
+
+# Step 2: Display downloaded Docker images
+docker images
+
+# Step 3: Create and run Nagios container
+# Map Mac port 8888 to container port 80
+docker run --name nagiosdemo -p 8888:80 jasonrivers/nagios:latest
+
+# Step 4: Open http://localhost:8888 in browser
+# Username: nagiosadmin
+# Password: nagios
+
+# Step 5: Check currently running containers
+docker ps
+
+# Display all containers, including stopped ones
+docker ps -a
+
+# Step 6: Display Nagios container logs
+docker logs nagiosdemo
+
+# Display logs continuously
+docker logs -f nagiosdemo
+
+# Step 7: Stop Nagios container
+docker stop nagiosdemo
+
+# Step 8: Start Nagios container again
+docker start nagiosdemo
+
+# Step 9: Stop and remove Nagios container
+docker stop nagiosdemo
+docker rm nagiosdemo
+
+# Step 10: Remove Nagios Docker image (optional)
+docker rmi jasonrivers/nagios:latest

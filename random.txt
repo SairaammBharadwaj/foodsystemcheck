@@ -89,3 +89,36 @@ docker rm nagiosdemo
 
 # Step 10: Remove Nagios Docker image (optional)
 docker rmi jasonrivers/nagios:latest
+
+////////////////////////////////////git
+
+
+# 1. Check Git version
+git --version
+
+# 2. Initialize Git
+git init
+
+# 3. Configure username
+git config --global user.name "Your Name"
+
+# 4. Configure email
+git config --global user.email "your-email@gmail.com"
+
+# 5. Connect remote repository
+git remote add origin https://github.com/username/repository.git
+
+# 6. Verify remote connection
+git remote -v
+
+# 7. Add all project files
+git add .
+
+# 8. Commit changes
+git commit -m "Initial commit"
+
+# 9. Rename branch to main
+git branch -M main
+
+# 10. Push project to GitHub
+git push -u origin main

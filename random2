@@ -174,7 +174,7 @@ pipeline {
     stages {
         stage('GIT CLONE & CLEAN') {
             steps {
-                git branch: 'main', url: 'https://github.com/GudupallyAshokReddy2007/maven-web-project'
+                git branch: 'main', url: 'https://github.com/SairaammBharadwaj/maven-web-project'
                 bat "mvn clean"
             }
         }

@@ -1,0 +1,6 @@
+or.apache.maven->quickstart-1.4
+com.app.demo
+samplemavenjavaproject
+icacls "testingkatesting.pem" /inheritance:r
+icacls "testingkatesting.pem" /grant:r "%USERNAME%":R
+icacls "testingkatesting.pem"
